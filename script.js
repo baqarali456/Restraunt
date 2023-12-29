@@ -104,7 +104,7 @@ function showCategory(){
     //  console.log(categoryList);
      
      let categories = categoryList.map(category=>{
-        return `<h5 class="categories mx-2">${category.Uppercase()}</h5>`
+        return `<h5 class="categories mx-2">${category}</h5>`
      })
     category.innerHTML = categories.join('');  
 }
@@ -124,4 +124,17 @@ btns.forEach(btn=>{
     }
   })
     
+})
+
+
+submit.addEventListener('click',(e)=>{
+e.preventDefault()
+const filtercategory = menuList.filter(menuitem=>menuitem.category === input.value);
+if(input.value == "all"){
+  showMenu(menuList)
+}
+else{
+
+  showMenu(filtercategory)
+}
 })
